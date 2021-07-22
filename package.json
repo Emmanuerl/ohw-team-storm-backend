@@ -1,0 +1,39 @@
+{
+  "name": "ohw-project",
+  "version": "1.0.0",
+  "description": "Budget Manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emmanuerl/ohw-team-storm-backend.git"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "config": "^3.2.5",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-handlebars": "^3.1.0",
+    "express-validator": "^6.4.0",
+    "handlebars": "^4.7.3",
+    "helmet": "^3.21.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.8.7",
+    "nodemailer": "^6.4.13",
+    "path": "^0.12.7",
+    "winston": "^3.3.3"
+  },
+  "author": "Hyeman Samuel,Chukwurah Emmanuel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Emmanuerl/ohw-team-storm-backend/issues"
+  },
+  "homepage": "https://github.com/Emmanuerl/ohw-team-storm-backend#readme"
+}

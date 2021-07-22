@@ -1,0 +1,2 @@
+Local mongodb Uri
+mongodb://localhost:27017/{database name}

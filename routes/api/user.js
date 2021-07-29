@@ -6,9 +6,9 @@ const Users = mongoose.model('Users');
 
 //POST new user route (optional, everyone has access)
 router.post('/', auth.optional, (req, res, next) => {
-  const { body: { user } } = req;
+  const { body: { email,password } } = req;
 
-  if(!user.email) {
+  if(!email) {
     return res.status(422).json({
       errors: {
         email: 'is required',
@@ -16,14 +16,17 @@ router.post('/', auth.optional, (req, res, next) => {
     });
   }
 
-  if(!user.password) {
+  if(!password) {
     return res.status(422).json({
       errors: {
         password: 'is required',
       },
     });
   }
-
+var user={
+    "email":email,
+    "password":password
+}
   const finalUser = new Users(user);
 
   finalUser.setPassword(user.password);
@@ -67,6 +70,10 @@ router.post('/login', auth.optional, (req, res, next) => {
     return status(400).info;
   })(req, res, next);
 });
+router.get("/monthly",auth.required,(req,res,next)=>{
+  
+})
+
 
 //GET current route (required, only authenticated users have access)
 router.get('/current', auth.required, (req, res, next) => {

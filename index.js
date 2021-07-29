@@ -35,6 +35,8 @@ if (process.env.NODE_ENV !== 'production') {
 
     ///Pipeline
     //This is where you register routes
+    app.use("/user",require("./routes/api/user"))
+    app.use("/transaction",require("./routes/api/transaction"))
     app.use("/category",require("./routes/api/category"))
 
 

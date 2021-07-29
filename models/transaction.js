@@ -3,7 +3,7 @@ const Mongoose=require('mongoose');
 const TransactionSchema=new Mongoose.Schema({
     "Title":{type:String,required:true},
     "Category":[{type:Mongoose.Schema.Types.ObjectId,ref:"Category"}],
-    "Description":{type:String},
+    "Description":{type:String,required:true},
     "Amount":{type:Mongoose.Schema.Types.Decimal128,required:true},
     "TimeAdded":{type:Number,required:true},
     "PaymentDate":{type:Number,required:true},
@@ -23,5 +23,6 @@ const TransactionOccurence = {
  Object.freeze(TransactionOccurence);
 
 module.exports = {
-    Transaction
+    Transaction,
+    TransactionOccurence
 }

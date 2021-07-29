@@ -3,6 +3,7 @@ const passport = require('passport');
 const router = require('express').Router();
 const auth = require('../auth');
 const Users = mongoose.model('Users');
+const {Transaction} = require("../../models/transaction");
 
 //POST new user route (optional, everyone has access)
 router.post('/', auth.optional, (req, res, next) => {
@@ -70,13 +71,21 @@ router.post('/login', auth.optional, (req, res, next) => {
     return status(400).info;
   })(req, res, next);
 });
-router.get("/monthly",auth.required,(req,res,next)=>{
-  
+router.get("/balance",auth.required,async (req,res,next)=>{
+  var startDate = req.body.startDate
+  var endDate = req.body.endDate
+  const { payload: { id } } = req;
+  var transactions = await Transaction.find({"PaymentDate":{$gt: new Date(startDate),$lt:new Date(endDate)},"User": id}).lean()
+        var balance;
+      transactions.forEach(transactions => {
+        balance += transactions.Amount;
+      });
+    res.status(200).send({"balance":balance,"Transactions":transactions})
 })
 
 
 //GET current route (required, only authenticated users have access)
-router.get('/current', auth.required, (req, res, next) => {
+router.get('/current', auth.required,  (req, res, next) => {
   const { payload: { id } } = req;
 
   return Users.findById(id)

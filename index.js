@@ -10,12 +10,6 @@ require('express-async-errors');
 
 
 
-///Routes
-//This is where you declare routes
-
-
-
-////
 
 if (process.env.NODE_ENV !== 'production') {
     Logger.SetConsoleLogger()
@@ -34,12 +28,14 @@ if (process.env.NODE_ENV !== 'production') {
     app.set('port', process.env.PORT || 3000)
     parser(app)
     mongoDb(app)
+    require("./models/user");
+    require("./utility/passport");
     handlebars(app,__dirname)
 
 
     ///Pipeline
     //This is where you register routes
-
+    app.use("/category",require("./routes/api/category"))
 
 
     app.get("/errorlogs",async (req,res,)=>{

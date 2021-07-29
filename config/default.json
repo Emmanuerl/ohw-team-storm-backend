@@ -1,1 +1,1 @@
-{"MongoDbConnectionString":"mongodb://localhost:27017/openhackweek"}
+{"MongoDbConnectionString":"mongodb+srv://dbUser:1234@cluster0.bfpzh.mongodb.net/OHW?retryWrites=true&w=majority"}
